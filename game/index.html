@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crown of Embers — a card duel</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="table">
+  <header id="topbar">
+    <div class="brand">♛ CROWN OF EMBERS</div>
+    <div class="top-stats">
+      <span id="roundLabel" class="pill">Round 1</span>
+      <span id="turnLabel" class="pill">Your turn</span>
+      <span id="scoreLabel" class="pill">Damage dealt 0</span>
+    </div>
+    <div class="top-actions">
+      <button id="helpBtn" type="button">How to play</button>
+      <button id="soundBtn" type="button">Sound: on</button>
+      <button id="restartBtn" type="button">Restart</button>
+    </div>
+  </header>
+
+  <section id="foeZone" aria-label="Opponent area">
+    <div class="fighter" id="foeFighter">
+      <div class="portrait foe-portrait">♜</div>
+      <div class="fighter-info">
+        <div class="fighter-name">Warden Vex <span class="tag">AI rival</span></div>
+        <div class="lifebar"><div id="foeLifeFill" class="life-fill foe"></div><span id="foeLifeText" class="life-text">30 / 30</span></div>
+        <div class="fighter-sub"><span id="foeShield">🛡 Shield 0</span> · <span id="foeEmber">🔥 Ember 1 / 1</span> · <span id="foeDeck">Deck 20</span></div>
+      </div>
+    </div>
+    <div class="hand-row foe-hand" id="foeHand" aria-label="Opponent hand"></div>
+  </section>
+
+  <section id="arena" aria-label="Arena">
+    <div id="arenaLeft">
+      <div class="arena-title">THE ARENA</div>
+      <div id="playedRow" class="played-row"></div>
+      <div id="banner" class="banner" hidden></div>
+    </div>
+    <div id="arenaRight">
+      <div class="arena-title">BATTLE LOG</div>
+      <ol id="logList" class="log-list"></ol>
+    </div>
+  </section>
+
+  <section id="playerZone" aria-label="Your area">
+    <div class="fighter" id="playerFighter">
+      <div class="portrait player-portrait">♛</div>
+      <div class="fighter-info">
+        <div class="fighter-name">You — the Ember Heir <span class="tag">challenger</span></div>
+        <div class="lifebar"><div id="playerLifeFill" class="life-fill you"></div><span id="playerLifeText" class="life-text">30 / 30</span></div>
+        <div class="fighter-sub"><span id="playerShield">🛡 Shield 0</span> · <span id="playerEmber">🔥 Ember 1 / 1</span> · <span id="playerDeck">Deck 20</span> · <span id="playerHandCount">Hand 4</span></div>
+      </div>
+      <button id="endTurnBtn" type="button">End turn ⏎</button>
+    </div>
+    <div class="hand-row player-hand" id="playerHand" aria-label="Your hand"></div>
+    <div id="hintBar">Click a card to play it · Keys 1–7 select · Enter plays · E ends turn · R restarts</div>
+  </section>
+</div>
+
+<div id="overlay" class="overlay" hidden>
+  <div class="overlay-card" id="overlayCard"></div>
+</div>
+
+<p id="status" role="status" aria-live="polite"></p>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
